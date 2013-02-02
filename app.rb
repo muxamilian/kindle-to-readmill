@@ -18,7 +18,6 @@ class Ktr < Sinatra::Base
 
   post '/text' do
     session[:text] = params[:text]
-    puts "\n\n\n\n\n"+session[:text]+"\n\n\n\n\n"
   end
 
   get '/auth/readmill' do

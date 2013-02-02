@@ -65,6 +65,7 @@ function hide_error() {
 }
 
 function handle_data(evt) {
+  $("#main-button").removeAttr("disabled", "disabled");
   var text_data = evt.target.result;
 
   $.ajax({
