@@ -33,6 +33,7 @@ function dragOver(evt) {
 function drop(evt) {
   evt.preventDefault();
   $(evt.target).removeClass("drag-active").addClass("drag-inactive");
+  $("#main-button").attr("disabled", "disabled");
 
   var files = evt.dataTransfer.files;
   var count = files.length;
@@ -53,15 +54,12 @@ function drop(evt) {
 }
 
 function show_error(msg) {
-  $("#search-form.control-group").addClass("error");
-  $(".help-inline").html(msg);
-  $(".help-inline").show(DURATION);
+  $("#errors").html(msg);
+  $("#errors").show(DURATION);
 }
 
 function hide_error() {
-  $("#search-form.control-group").removeClass("error");
-  $(".help-inline").hide(DURATION);
-  $(".help-inline").html("");
+  $("#errors").hide(DURATION);
 }
 
 function handle_data(evt) {
@@ -75,10 +73,8 @@ function handle_data(evt) {
     type: 'POST'
   }).done(function() {
     $("#main-button").removeAttr("disabled");
-    console.log("ajax worked");
+    hide_error();
   }).fail(function() {
-    console.log("ajax failed");
-  }).always(function() {
-    console.log("ajax completed");
+    show_error("Uploading to the server didn't work...");
   });
 }

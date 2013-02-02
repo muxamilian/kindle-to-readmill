@@ -32,6 +32,13 @@ h1 {
   cursor: not-allowed;
 }
 
+#errors {
+  /*margin-left: 10px;*/
+  padding-left: 40px;
+  color: red;
+  display: none;
+}
+
 #dropzone {
   font-size: 0.75em;
   text-align: center;
