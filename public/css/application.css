@@ -49,9 +49,8 @@ h1 {
   clear: both;
 }
 
-#dropzone{
+#dropzone {
   border-radius:7px;
-  border: 2px dashed #ccc;
   width: 100px;
   height: 100px;
   margin-top:15px;

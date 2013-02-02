@@ -1,5 +1,9 @@
 var current_file;
 
+$(function() {
+  setup_drag_n_drop("dropzone");
+});
+
 function setup_drag_n_drop(id) {
   id = document.getElementById(id);
   id.addEventListener("dragenter", dragEnter, false);
@@ -7,8 +11,6 @@ function setup_drag_n_drop(id) {
   id.addEventListener("dragover", dragOver, false);
   id.addEventListener("drop", drop, false);
 }
-
-setup_drag_n_drop("dropzone");
 
 function dragEnter(evt) {
   evt.stopPropagation();
