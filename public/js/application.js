@@ -46,7 +46,7 @@ function drop(evt) {
   // Abort, when the user hasn't uploaded anything
   if (count <= 0) {return; }
   // Check if the file is a valid mp3
-  if (!filter.test(file.type)) { show_error("Please only upload plain text"); return; }
+  if (!filter.test(file.type)) { show_error("We think you uploaded the wrong file ;)"); return; }
   // Otherwise hide the error
   hide_error();
 
@@ -75,6 +75,6 @@ function handle_data(evt) {
     $("#main-button").removeAttr("disabled");
     hide_error();
   }).fail(function() {
-    show_error("Uploading to the server didn't work...");
+    show_error("Uploading to the server didn't work. Strange...");
   });
 }
