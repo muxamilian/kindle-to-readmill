@@ -8,3 +8,5 @@ It's just as easy as this:
 * Then you press the big green button.
 * Now authenticate
 * ** and you are done :) **
+
+Created on the Schoenhackday by Readmill by *Martin Klepsch* and *Maximilian Bachl*.
