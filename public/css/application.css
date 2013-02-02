@@ -24,8 +24,12 @@ h1 {
   border: 0;
   border-radius: 3px;
   cursor: pointer;
-  /* add transition */
   -webkit-appearance: none;
+}
+
+.authorize:disabled{
+  background-color: #7A8E67;
+  cursor: not-allowed;
 }
 
 #dropzone {
