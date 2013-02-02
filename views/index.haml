@@ -6,22 +6,28 @@
     %meta{name:"viewport", content: "width=device-width, initial-scale=1"}
     %title
       Import your Kindle highlights to Readmill
+    %link{href: 'http://fonts.googleapis.com/css?family=Open+Sans:400', rel: 'stylesheet', type: 'text/css'}
     = css :application
 
   %body{lang:"en"}
     #container
       %h1
         Import your Kindle highlights to Readmill
-      #dropzone
-        Drop your Clippings.txt here :)
-      #instructions
-        %ol
-          %li
-            Connect your Kindle with your Computer
-          %li
-            Locate the Clippings.txt file on your Kindĺe
-            (Where is it?)
-          %li
-            Drop it into the square on the left
-          %li
-            Authorize Readmill to transfer your highlights
+      .box
+        #dropzone
+          Drop your Clippings.txt here :)
+      .box
+        #instructions
+          %ol
+            %li
+              Connect your Kindle with your Computer
+            %li
+              Locate the Clippings.txt file on your Kindĺe
+              %br
+              (Where is it?)
+            %li
+              Drop it into the square on the left
+            %li
+              Press the green button
+            %form{action: '/auth/readmill'}
+              %input{type: 'submit', value: 'Authorize Readmill & send highlights', class: 'authorize'}
