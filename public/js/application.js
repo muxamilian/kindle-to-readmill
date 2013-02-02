@@ -65,7 +65,6 @@ function hide_error() {
 }
 
 function handle_data(evt) {
-  $("#main-button").removeAttr("disabled", "disabled");
   var text_data = evt.target.result;
 
   $.ajax({
@@ -75,7 +74,7 @@ function handle_data(evt) {
     },
     type: 'POST'
   }).done(function() {
-    // $(this).addClass("done");
+    $("#main-button").removeAttr("disabled");
     console.log("ajax worked");
   }).fail(function() {
     console.log("ajax failed");
