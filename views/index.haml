@@ -2,12 +2,26 @@
 %html
   %head
     %meta{charset: "utf-8"}
-    %meta{http-equiv: "X-UA-Compatible", content:"IE=edge,chrome=1"}
+    %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     %meta{name:"viewport", content: "width=device-width, initial-scale=1"}
     %title
       Import your Kindle highlights to Readmill
     = css :application
 
   %body{lang:"en"}
-    %h1
-      Import your Kindle highlights to Readmill
+    #container
+      %h1
+        Import your Kindle highlights to Readmill
+      #dropzone
+        Drop your Clippings.txt here :)
+      #instructions
+        %ol
+          %li
+            Connect your Kindle with your Computer
+          %li
+            Locate the Clippings.txt file on your Kindĺe
+            (Where is it?)
+          %li
+            Drop it into the square on the left
+          %li
+            Authorize Readmill to transfer your highlights

@@ -1,0 +1,20 @@
+@import "app/css/frameless";
+
+#container{
+  margin: auto;
+  margin-top:100px;
+  @include width(8);
+}
+
+#dropzone{
+  border-radius:7px;
+  border: 2px dashed #ccc;
+  @include width(2);
+  @include height(2);
+}
+
+#instructions{
+  padding: 1em;
+  @include width(6);
+}
+
