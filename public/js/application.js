@@ -48,5 +48,36 @@ function drop(evt) {
   // Otherwise hide the error
   hide_error();
 
-  reader.readAsBinaryString(file);
+  reader.readAsText(file);
+}
+
+function show_error(msg) {
+  $("#search-form.control-group").addClass("error");
+  $(".help-inline").html(msg);
+  $(".help-inline").show(DURATION);
+}
+
+function hide_error() {
+  $("#search-form.control-group").removeClass("error");
+  $(".help-inline").hide(DURATION);
+  $(".help-inline").html("");
+}
+
+function handle_data(evt) {
+  var text_data = evt.target.result;
+
+  $.ajax({
+    url: "/text",
+    data: {
+      text: text_data
+    },
+    type: 'POST'
+  }).done(function() {
+    // $(this).addClass("done");
+    console.log("ajax worked");
+  }).fail(function() {
+    console.log("ajax failed");
+  }).always(function() {
+    console.log("ajax completed");
+  });
 }

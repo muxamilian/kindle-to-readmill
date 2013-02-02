@@ -4,9 +4,9 @@ require 'rest-client'
 
 $client_id = "18230e3569ee936122b22a8563c61ee8"
 $client_secret = "d9f22a5e3767ffccdfa3f3108281dd7a"
-access_token = nil
 
 class Ktr < Sinatra::Base
+  enable :sessions
 
   def redirect_uri host
     "http://#{host}:#{request.port}/callback/readmill"
@@ -14,6 +14,11 @@ class Ktr < Sinatra::Base
 
   get '/' do
     haml :index
+  end
+
+  post '/text' do
+    session[:text] = params[:text]
+    puts "\n\n\n\n\n"+session[:text]+"\n\n\n\n\n"
   end
 
   get '/auth/readmill' do
