@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/assetpack'
 require 'json'
 require 'rest-client'
 
@@ -8,21 +7,6 @@ $client_secret = "d9f22a5e3767ffccdfa3f3108281dd7a"
 access_token = nil
 
 class Ktr < Sinatra::Base
-  register Sinatra::AssetPack
-  assets {
-    # The second parameter defines where the compressed version will be served.
-    # (Note: that parameter is optional, AssetPack will figure it out.)
-
-    css :application, '/css/application.css', [ '/css/application.scss' ]
-
-    js :app, '/js/app.js', [
-      '/js/app.js',
-      '/js/jquery-1.9.0.min.js'
-    ]
-
-    # js_compression  :jsmin    # Optional
-    css_compression :sass       # Optional
-  }
 
   def redirect_uri host
     "http://#{host}:#{request.port}/callback/readmill"

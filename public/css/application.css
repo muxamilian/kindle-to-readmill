@@ -9,12 +9,12 @@ body {
   box-sizing: border-box;
 }
 
-h1{
+h1 {
   font-size: 2.6em;
   font-weight: 400;
 }
 
-.authorize{
+.authorize {
   background-color: #7BC431;
   text-transform: uppercase;
   font-weight: bold;
@@ -28,7 +28,7 @@ h1{
   -webkit-appearance: none;
 }
 
-#dropzone{
+#dropzone {
   font-size: 0.75em;
   text-align: center;
   background: #FAFAFA;
@@ -38,7 +38,7 @@ h1{
 
 
 // LAYOUT
-#container{
+#container {
   margin: auto;
   margin-top:100px;
   width: 520px;
@@ -69,5 +69,8 @@ h1{
   margin-left: 10px;
   width: 410px;
 }
-.box{float:left;}
+
+.box {
+  float:left;
+}
 
