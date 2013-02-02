@@ -37,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  jsmin
   rest-client
   sass
   sinatra

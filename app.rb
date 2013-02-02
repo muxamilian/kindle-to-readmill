@@ -5,20 +5,22 @@ require 'rest-client'
 
 $client_id = "18230e3569ee936122b22a8563c61ee8"
 $client_secret = "d9f22a5e3767ffccdfa3f3108281dd7a"
-$access_token = nil
+access_token = nil
 
 class Ktr < Sinatra::Base
   register Sinatra::AssetPack
   assets {
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
+
+    css :application, '/css/application.css', [ '/css/application.scss' ]
+
     js :app, '/js/app.js', [
-      '/js/app.js'
+      '/js/app.js',
+      '/js/jquery-1.9.0.min.js'
     ]
 
-    css :application, '/css/application.scss', [ 'css/application.css' ]
-
-    js_compression  :uglify      # Optional
+    # js_compression  :jsmin    # Optional
     css_compression :sass       # Optional
   }
 
@@ -55,7 +57,7 @@ class Ktr < Sinatra::Base
     # user.name = data[:user]['username']
     # user.access_token = resp['access_token']
     # user.save!
-    $access_token = resp['access_token']
+    @access_token = resp['access_token']
     puts "\n\n\n\n\n" + $access_token.inspect + "\n\n\n\n\n"
     redirect '/success'
   end

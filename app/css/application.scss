@@ -56,6 +56,15 @@ h1{
   height: 100px;
   margin-top:15px;
 }
+
+.drag-inactive {
+  border: 2px dashed #ccc;
+}
+
+.drag-active {
+  border: 2px dashed #000;
+}
+
 #instructions{
   margin-left: 10px;
   width: 410px;
