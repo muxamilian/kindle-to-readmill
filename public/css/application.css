@@ -24,7 +24,7 @@ h1 {
   border: 0;
   border-radius: 3px;
   cursor: pointer;
-  // add transition
+  /* add transition */
   -webkit-appearance: none;
 }
 
@@ -37,7 +37,7 @@ h1 {
 }
 
 
-// LAYOUT
+/* LAYOUT */
 #container {
   margin: auto;
   margin-top:100px;
