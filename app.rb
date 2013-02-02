@@ -13,13 +13,12 @@ class Ktr < Sinatra::Base
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
     js :app, '/js/app.js', [
-      '/js/vendor/**/*.js',
-      '/js/app/**/*.js'
+      '/js/app.js'
     ]
 
     css :application, '/css/application.scss', [ 'css/application.css' ]
 
-    js_compression  :jsmin      # Optional
+    js_compression  :uglify      # Optional
     css_compression :sass       # Optional
   }
 
