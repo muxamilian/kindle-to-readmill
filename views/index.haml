@@ -25,11 +25,14 @@
               Connect your Kindle with your Computer
             %li
               Locate the Clippings.txt file on your Kindĺe
-              %br
-              (Where is it?)
             %li
               Drop it into the square on the left
             %li
               Press the green button
             %form{action: '/auth/readmill'}
-              %input#main-button{type: 'submit', value: 'Authorize Readmill & send highlights', class: 'authorize', disabled: "disabled"}
+              %input{type: 'submit', value: 'Authorize App & send highlights', class: 'authorize', disabled: true}
+      .box
+        #faq
+          %ul
+            %li Isn't there a bookmarklet for that?
+            %li Where is the file with my clippings/highlights?
