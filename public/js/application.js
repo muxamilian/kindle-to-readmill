@@ -1,4 +1,5 @@
 var current_file;
+var DURATION = 300;
 
 $(function() {
   setup_drag_n_drop("dropzone");
