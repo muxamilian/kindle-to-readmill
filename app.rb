@@ -24,6 +24,7 @@ class Ktr < Sinatra::Base
   end
 
   get '/kthxbai' do
+    Ktr.clear_data(session)
     haml :success
   end
 
@@ -87,6 +88,10 @@ class Ktr < Sinatra::Base
     Ktr.redis.get "#{session[:session_id]}-token"
   end
 
+  def self.clear_data(session)
+    Ktr.redis.del *Ktr.redis.keys("#{session[:session_id]}*")
+  end
+
   # REDIS CONNECTOR
   # mostly stolen from resque haha
   def self.redis
@@ -124,6 +129,7 @@ class Ktr < Sinatra::Base
       host, port, db = server.split(':')
       @redis = Redis.new(:host => host, :port => port,
                          :thread_safe => true, :db => db)
+      end
     else
       # else
       @redis = server
