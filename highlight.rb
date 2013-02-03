@@ -17,7 +17,7 @@ class Highlight
     uid = Ktr.get_uid(session)
     token = Ktr.get_token(session)
     all_clippings.each{|clip|
-      self.parse_clip(clip, uid, token) ? results[:success] += 1 : results[:failure] += 1
+      self.parse_clip(clip, uid, token)
     }
     return results
   end
