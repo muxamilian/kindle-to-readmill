@@ -8,7 +8,7 @@ class Ktr < Sinatra::Base
   set :sessions, true
 
   def redirect_uri host
-    "http://#{host}:#{request.port}/callback/readmill"
+    "http://#{host}/callback/readmill"
   end
 
   get '/' do
@@ -20,7 +20,7 @@ class Ktr < Sinatra::Base
   end
 
   get '/auth/readmill' do
-    redirect "http://readmill.com/oauth/authorize?response_type=code&client_id=#{Ktr.readmill_client_id}&redirect_uri=#{redirect_uri request.host}&scope=non-expiring"
+    redirect "http://readmill.com/oauth/authorize?response_type=code&client_id=#{Ktr.readmill_client_id}&redirect_uri=#{redirect_uri(request.host)}&scope=non-expiring"
   end
 
   get '/kthxbai' do
