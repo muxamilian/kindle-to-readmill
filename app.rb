@@ -37,14 +37,17 @@ class Ktr < Sinatra::Base
       :client_secret => Ktr.readmill_client_secret
     }
 
-    auth_res = JSON.parse(RestClient.post("http://readmill.com/oauth/token.json", token_params).to_str)
-    session[:token] = auth_res['access_token']
-    Ktr.save_token session, auth_res['access_token']
+    token = Ktr.get_token session
+    if token.nil? || token.empty?
+      token = JSON.parse(RestClient.post("http://readmill.com/oauth/token.json", token_params).to_str)['access_token']
+    end
+    session[:token] = token
+    Ktr.save_token session, token
 
     me_res = JSON.parse(RestClient.get("https://api.readmill.com/v2/me", me_params).to_str)
     Ktr.save_uid session, me_res["user"]["id"]
-    Highlight.parse(session)
-    redirect '/success'
+    stats = Highlight.parse(session)
+    redirect "/kthxbai?success=#{stats[:success]}&failure=#{stats[:failure]}"
   end
 
   def me_params
@@ -52,11 +55,11 @@ class Ktr < Sinatra::Base
   end
 
   def self.readmill_client_id
-    "18230e3569ee936122b22a8563c61ee8"
+    "a42e275a33084de0eafae2c9a9036f9b"
   end
 
   def self.readmill_client_secret
-    "d9f22a5e3767ffccdfa3f3108281dd7a"
+    "5c0284332666555c5419d00d9e27c4e3"
   end
 
 
