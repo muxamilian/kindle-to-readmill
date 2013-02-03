@@ -91,7 +91,11 @@ class Ktr < Sinatra::Base
   # mostly stolen from resque haha
   def self.redis
     return @redis if @redis
-    self.redis = "localhost:6379"
+    if ENV["REDIS_URI"]
+      self.redis = ENV["REDIS_URI"]
+    else
+      self.redis = "localhost:6379"
+    end
     self.redis
   end
 
@@ -105,9 +109,9 @@ class Ktr < Sinatra::Base
   def self.redis=(server)
     case server
     when String
-    #   if server['redis://']
-    #     redis = Redis.connect(:url => server, :thread_safe => true)
-    #   else
+      if server['redis://']
+        redis = Redis.connect(:url => server, :thread_safe => true)
+      else
     #     server, namespace = server.split('/', 2)
     #     host, port, db = server.split(':')
     #     redis = Redis.new(:host => host, :port => port,
