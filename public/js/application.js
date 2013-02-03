@@ -46,7 +46,12 @@ function drop(evt) {
   // Abort, when the user hasn't uploaded anything
   if (count <= 0) {return; }
   // Check if the file is a valid mp3
-  if (!filter.test(file.type)) { show_error("We think you uploaded the wrong file ;)"); return; }
+  if (filter.test(file.type)) {
+    $('#dropzone').text("Thanks! Now give it a spin! :)");
+  } else {
+    show_error("We think you uploaded the wrong file ;)");
+    return;
+  }
   // Otherwise hide the error
   hide_error();
 
