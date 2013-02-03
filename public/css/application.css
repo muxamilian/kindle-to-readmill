@@ -47,6 +47,16 @@ h1 {
   padding: 10px;
 }
 
+#faq{
+  color: #555;
+}
+#faq ul{
+  list-style-type: none;
+}
+#faq .answer{
+  font-size: 0.9em;
+}
+
 
 /* LAYOUT */
 #container {
