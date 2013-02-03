@@ -115,7 +115,7 @@ class Ktr < Sinatra::Base
     case server
     when String
       if server['redis://']
-        redis = Redis.connect(:url => server, :thread_safe => true)
+        @redis = Redis.connect(:url => server, :thread_safe => true)
       else
     #     server, namespace = server.split('/', 2)
     #     host, port, db = server.split(':')
@@ -134,8 +134,8 @@ class Ktr < Sinatra::Base
       # else
       @redis = server
     end
-        server, namespace = server.split('/', 2)
-        host, port, db = server.split(':')
+        # server, namespace = server.split('/', 2)
+        # host, port, db = server.split(':')
     # end
   end
 end
